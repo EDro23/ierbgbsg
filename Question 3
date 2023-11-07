@@ -1,0 +1,7 @@
+SELECT SUM(invoice_total) as 'invoices total for Pac Bell'
+FROM Invoices
+WHERE
+Vendor_ID = (SELECT
+ Vendor_ID FROM
+ Vendors WHERE
+ Vendor_Name = 'Pacific Bell');
