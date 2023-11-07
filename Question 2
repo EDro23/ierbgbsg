@@ -1,0 +1,8 @@
+SELECT Invoice_Number as 'Invoice Number',
+ Invoice_Total as 'Invoice Total'
+FROM Invoices
+WHERE
+Vendor_ID = (SELECT
+ Vendor_ID FROM
+ Vendors WHERE
+ Vendor_Name = 'Pacific Bell');
