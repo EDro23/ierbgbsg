@@ -2,7 +2,7 @@ SELECT Vendors.Vendor_Name,
        SUM(Invoices.Invoice_Total) AS "amount due"
 FROM Vendors
 JOIN Invoices ON Vendors.Vendor_ID = Invoices.Vendor_ID
-GROUP BY Vendors.Vendor_ID, Vendors.Vendor_Name
-HAVING "amount due" > 100
+GROUP BY Vendors.Vendor_Name
+HAVING SUM(Invoices.Invoice_Total) > 100
 ORDER BY "amount due" DESC
 LIMIT 5;
