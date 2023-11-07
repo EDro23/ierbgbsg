@@ -1,0 +1,4 @@
+SELECT COUNT(*)
+FROM Invoices
+JOIN Vendors ON Invoices.Vendor_ID = Vendors.Vendor_ID
+WHERE Vendors.Vendor_Name = 'Pacific Bell';
