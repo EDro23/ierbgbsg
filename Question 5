@@ -1,0 +1,6 @@
+SELECT li.line_item_description AS "Description", li.line_item_amount AS "Amount"
+FROM invoices AS inv
+JOIN invoice_line_items AS
+ li ON inv.invoice_number = li.invoice_sequence
+WHERE inv.invoice_number = 'I77271-O01'
+ORDER BY li.invoice_sequence ASC;     
