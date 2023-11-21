@@ -1,0 +1,24 @@
+# Question 4
+INSERT INTO invoices (vendor_id, invoice_number, invoice_date, invoice_total, payment_total, credit_total, terms_id, invoice_due_date, payment_date)
+VALUES ('32', 'AX-014-027', '2018-08-01', 434.58, 0.00, 0.00, 2, '2018-08-31', NULL);
+# Question 5
+INSERT INTO invoice_line_items (invoice_id,invoice_sequence,account_number,line_item_amount,line_item_description)
+VALUES ('115','1','160',180.23,'Hard Drive');
+# Question 6
+UPDATE invoices
+SET credit_total = invoice_total * 0.10,
+    payment_total = invoice_total - (invoice_total * 0.10)
+WHERE invoice_id = 32;
+# Question 7
+UPDATE Vendors
+SET default_account_number = '403'
+WHERE vendor_id = 44;
+# Question 8
+UPDATE Invoices
+SET terms_id = 2
+WHERE vendor_id IN (SELECT vendor_id FROM Vendors WHERE default_terms_id = 2);
+# Question 9
+DELETE FROM Invoice_Line_Items
+WHERE invoice_id = 32;
+DELETE FROM Invoices
+WHERE invoice_id = 32;
